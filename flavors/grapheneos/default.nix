@@ -163,6 +163,10 @@
               "build/make/target/product/security/gmscompat_lib" = "${config.device}/gmscompat_lib";
             })
           ];
+
+          pkcs11.presets.yubikey-piv.slotMap = lib.mkOptionDefault {
+            "${config.device}/gmscompat_lib" = "8a";
+          };
         };
 
         # Leave the existing auditor in the build--just in case the user wants to
