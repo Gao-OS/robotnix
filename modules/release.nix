@@ -85,7 +85,7 @@ let
       ( OUT=$(realpath ${out})
         cd ${otaTools}; # Enter otaTools dir so relative paths are correct for finding original keys
         sign_target_files_apks \
-          -o ${toString config.signing.signTargetFilesArgs} \
+          -o ${lib.concatStringsSep " \\\n  " config.signing.signTargetFilesArgs} \
           ${targetFiles} $OUT
       )
     '';
